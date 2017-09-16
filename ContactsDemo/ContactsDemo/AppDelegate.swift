@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ContactsDemo
 //
-//  Created by Appinventiv on 16/09/17.
-//  Copyright © 2017 Appinventiv. All rights reserved.
+//  Created by Atul on 03/08/17.
+//  Copyright © 2017 Atul. All rights reserved.
 //
 
 import UIKit

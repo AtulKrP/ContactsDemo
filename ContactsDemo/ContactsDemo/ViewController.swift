@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  ContactsDemo
 //
-//  Created by Appinventiv on 16/09/17.
-//  Copyright © 2017 Appinventiv. All rights reserved.
+//  Created by Atul on 03/08/17.
+//  Copyright © 2017 Atul. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.fetchContacts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,37 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func fetchContacts(){
+        
+        ATContacts.isContactAccessible { (accessible, status) in
+            
+            if accessible{
+                
+                let contacts = ATContacts.fetchContacts()
+                print(contacts.count)
+                
+                for con in contacts{
+                    
+                    print("identifier: \(con.identifier)")
+                    print("familyName: \(con.familyName)")
+                    print("givenName: \(con.givenName)")
+                    print("middleName: \(con.middleName)")
+                    print("namePrefix: \(con.namePrefix)")
+                    print("nameSuffix: \(con.nameSuffix)")
+                    print("nickname: \(con.nickname)")
+                    print("phoneNumbers: \(con.phoneNumbers)")
+                    print("emailAddresses: \(con.emailAddresses)")
+                    print("-----------------------------------------\n")
+                }
+                
+                print("\nFlatMaps")
+                
+            }else{
+                print(status.rawValue)
+            }
+        }
+    }
 
 }
 
